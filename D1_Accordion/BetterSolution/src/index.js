@@ -1,13 +1,20 @@
-import './styles.css';
-
-
+/**
+ * @param {HTMLElement} $rootEl - It takes the root element where all the accordion items will be appended.
+ * @param {Object} options - It takes the attributes of the accordions.
+ */
 (() => {
   function accordion($rootEl, { sections }) {
     function attachEvents() {
       // Use Event Delegation.
       $rootEl.addEventListener('click', (event) => {
         const target = event.target;
+        /**
+           * This statement checks if the target is not a button or not contains the class of accordion-item-title.
+           * if so, it will return nothing, which means if the user doesn't click on the button or the title, it will return nothing.
+           */
         if (
+          // tagName is always return as uppercase.
+          
           target.tagName !== 'BUTTON' ||
           !target.classList.contains('accordion-item-title')
         ) {
@@ -18,6 +25,7 @@ import './styles.css';
         const $icon = target.querySelector(
           '.accordion-icon',
         );
+        
         $icon.classList.toggle('accordion-icon--rotated');
 
         // Find the accordion contents and toggle the
@@ -30,7 +38,7 @@ import './styles.css';
 
     function init() {
       $rootEl.classList.add('accordion');
-
+      // Use DocumentFragment method to reduce the reflow and repaint on the real DOM. Make all the changes happen in the RAM to increase the performance.
       const $accordionSections =
         document.createDocumentFragment();
 
@@ -74,11 +82,13 @@ import './styles.css';
 
       $rootEl.appendChild($accordionSections);
     }
-
+    // Initialize the accordion HTML structure.
     init();
+    // Attach the event listners to the buttons and the titles.
     attachEvents();
   }
 
+  // Initialze the accordion component and pass element "accordioin" to the accordion function.
   accordion(document.getElementById('accordion'), {
     sections: [
       {
