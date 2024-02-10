@@ -37,7 +37,6 @@ You may want to think about ways to improve the user experience of the applicati
 
 4. An Immediately Invoked Function Expression (IIFE) is a JavaScript pattern used to create a new scope for encapsulating variables, preventing pollution of the global namespace. It is achieved by defining a function and executing it immediately after its definition. It's a bit like declaring variables or methods as `private` in C# to ensure that they can only be accessed within the class. Although IIFE provides a basic encapsulation and modularization mechanism, ES modules (using `import` and `export`) have become the more standard solution in JavaScript today. However, IIFE still has better support for scenarios that do not support ES modules or require fast packaging.
 
-
 ***Based on the four core knowledge points, if I were the author of this solution, the key considerations and objectives that might have influenced the design of this solution could include the following:***
 
 - **Minimize direct DOM manipulations:** By reducing the frequency and volume of direct DOM manipulations, the solution aims to decrease the number of reflows and repaints, leading to improved performance.
