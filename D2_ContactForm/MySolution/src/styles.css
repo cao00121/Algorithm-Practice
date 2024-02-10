@@ -1,0 +1,58 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+  text-align: center;
+  font-family: monospace;
+  font-weight: bold;
+  font-style: italic;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+form input {
+  height: 30px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(244, 244, 244);
+  margin-bottom: 10px;
+}
+
+form textarea {
+  height: 100px;
+  border: none;
+  border-radius: 3px;
+  background-color: rgb(244, 244, 244);
+}
+
+form button {
+  height: 45px;
+  border: none;
+  border-radius: 99999px;
+  background-color: rgb(0, 123, 255);
+  color: white;
+  font-size: 1rem;
+  font-family: monospace;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+form button:hover {
+  background-color: rgb(0, 100, 255);
+}
+
+label {
+  font-size: .8rem;
+  margin-bottom: 5px;
+  font-family: monospace;
+}

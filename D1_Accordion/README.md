@@ -19,8 +19,6 @@ The focus of this question is on functionality, not the styling. Do not spent to
 You may modify the markup (e.g. adding ids, data attributes, replacing some tags, etc) and use client-side rendering instead.
 You may want to think about ways to improve the user experience of the application and implement them (you get bonus credit for doing that during interviews).
 
-
-
 # *My Problem-solving Ideas*
 
 1. This question focuses on our ability to manipulate CSS style attributes in DOM operations, especially toggling between `display: none` for hiding elements and `display: block` (or other display values) to make them visible. This approach is central to controlling the accordion's visibility.
