@@ -23,3 +23,19 @@ When I first encountered this problem, I identified two main knowledge points be
 
 2. I then devised a function that handles two significant tasks: inserting a dynamically sized table into an empty div in HTML and traversing the columns to fill them in a snaking pattern as observed. This approach emphasizes dynamic rendering based on user input and showcases a flexible web development practice. Finally, by manipulating the DOM, the entire table is dynamically rendered into HTML, allowing for variable table size and fill pattern as determined by user input.
 
+# *Better problem-solving ideas*
+
+- **Dynamically Creating Tables:** Utilizes `Array.from` and template literals to dynamically generate the HTML structure of the table.
+
+- **Declarative Programming:** Employs a declarative programming approach, directly generating views based on data, instead of stepwise DOM manipulation.
+
+- **Calculating Fill Values:** Uses a conditional expression to calculate the fill value for each cell based on the evenness or oddness of the column.
+
+- **Concise Code:** Concatenates HTML strings in a succinct manner through chaining `.map` and `.join` methods.
+
+**Aspects that I lacked or didn't consider**
+- **Declarative Programming:** The solution elegantly demonstrates how to simplify the problem-solving process through declarative programming. Compared to step-by-step addition or modification of DOM elements, this method is more concise and intuitive.
+
+- **Dynamic Array Creation with `Array.from`:** It cleverly uses the `Array.from` method to create arrays of specific lengths and initialize their elements, which is particularly useful in scenarios of dynamic content generation.
+
+- **Flexible Use of Conditional Expressions:** In calculating the fill values for cells, it employs conditional expressions to decide the values based on the column's evenness or oddness, making the method both succinct and efficient.
