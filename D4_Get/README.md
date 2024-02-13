@@ -87,7 +87,8 @@ There's no need to support syntax resembling `get(object, 'a[0].b.c')`
 
 - The author's traversal method can find keys on the prototype chain because when accessing properties directly with `object[key]`, JavaScript automatically searches up the prototype chain until the corresponding key is found or the end of the chain is reached.
 
-> ##### 🫵🏻 Explanation of the Prototype Chain Concept]
+> ### 🫵🏻 Explanation of the Prototype Chain Concept
+>
 > - In JavaScript, ***<span style="color: red;">the prototype chain is the foundation of object inheritance.</span>*** Every object has a prototype object from which it inherits methods and properties. The prototype may also have its own prototype, and so on, forming a chain-like structure. This means objects in JavaScript can inherit properties and methods from other objects.
 > ```javascript
 > function Person() {
