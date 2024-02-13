@@ -70,3 +70,37 @@ There's no need to support syntax resembling `get(object, 'a[0].b.c')`
 
 - We `use == null` to check for both null and undefined simultaneously because `null == undefined` is `true` in JavaScript. This approach simplifies the code, allowing us to handle these two cases with a single condition.
 - We explicitly compare with `=== undefined` to ensure that defaultValue is returned only when the property truly does not exist (i.e., the value is `undefined`). This avoids confusion with `null` or other `falsy` values.
+
+# *Better problem-solving ideas*
+
+1. Convert the incoming path parameter `(pathParam)` into an array format, regardless of whether it was originally a string or an array. This unifies the logic for subsequent path traversal.
+
+2. Use a loop to traverse each key in the path array, accessing the corresponding property in the object at each level. This method allows for dynamic access to nested properties based on the path.
+
+3. This direct access using `object[key]` allows for accessing properties on the object itself as well as those on the prototype chain.
+
+4. During traversal, if an object that is `null` or `undefined` is encountered, the traversal stops, and `defaultValue` is returned as appropriate.
+
+5. After the traversal is complete, if the entire path was successfully accessed, return the final found property value; otherwise, return `defaultValue`.
+
+**Special Note**
+
+- The author's traversal method can find keys on the prototype chain because when accessing properties directly with `object[key]`, JavaScript automatically searches up the prototype chain until the corresponding key is found or the end of the chain is reached.
+
+> ##### 🫵🏻 Explanation of the Prototype Chain Concept]
+> - In JavaScript, ***<span style="color: red;">the prototype chain is the foundation of object inheritance.</span>*** Every object has a prototype object from which it inherits methods and properties. The prototype may also have its own prototype, and so on, forming a chain-like structure. This means objects in JavaScript can inherit properties and methods from other objects.
+> ```javascript
+> function Person() {
+>  this.name = "John";
+>}
+>Person.prototype.greet = function() {
+>  console.log("Hello, my name is " + this.name);
+>};
+>
+>const person1 = new Person();
+>person1.greet(); // Outputs: Hello, my name is John
+>
+>// 'greet' is accessed via the prototype chain.
+>
+> ```
+> - In this example, the `Person` constructor creates an object with a `name` property. The `greet` method is added to the prototype of `Person`, so all objects created through `Person` can access this method. This demonstrates how methods can be shared among objects via the prototype chain.
