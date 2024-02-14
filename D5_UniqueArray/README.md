@@ -112,5 +112,3 @@ for (let [key, value] of myMap) {
 mySet.forEach(item => console.log(item)); // 'a', 'b', 'c'
 myMap.forEach((value, key) => console.log(`${key}: ${value}`)); // 'a: 1', 'b: 2', 'c: 3'
 ```
-
-# *Better problem-solving ideas*
