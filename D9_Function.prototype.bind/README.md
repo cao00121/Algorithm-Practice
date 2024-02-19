@@ -71,3 +71,32 @@ In this example, I pass `null` as the `thisArg` to the apply method since the `s
 
 # *Better problem-solving ideas*
 
+**Similarities and Differences with Our Approach:**
+
+- **Similarities:** Our implementation also adds the `myBind` method to `Function.prototype` and accepts `thisArg` and `argArray` as parameters. The returned new function also uses the `apply` method to call the original function with the combined arguments.
+
+- **Differences:** The author provides a solution using `Reflect.apply`, an API introduced in ES6 for more explicitly calling functions. Additionally, the author mentions using `Symbol` and `Object.defineProperty` to avoid potential property conflicts.
+
+
+**Ingenious Aspects of the Author's Solution:**
+
+- **Using `Reflect.apply`:** This approach is more robust because it avoids the reliability risks that may arise from directly calling the `apply` method (e.g., if the original function has a custom property named apply).
+
+- **Using Symbol and Object.defineProperty:** This method creates a unique `Symbol` and adds it as a property to a new object, avoiding conflicts that may arise from adding properties to the original object.
+
+**Reasons for the Robustness of `Reflect.apply`:**
+
+- When directly calling the `apply` method, if there is a custom property or method named `apply` on the original function object, this custom `apply` will be called instead of `Function.prototype.apply`. This may lead to unexpected behavior or errors.
+- Using `Reflect.apply` ensures that the correct `apply` method is always called because `Reflect.apply` is a static method that does not depend on the properties of the function object. This avoids potential property override issues, enhancing the robustness and reliability of the code.
+
+
+**Reasons for Using `Symbol` to Avoid Conflicts When Adding Properties to the Original Object:**
+
+- In JavaScript, object property names are usually strings. Adding a new property to the original object with an existing property name will overwrite the value of the existing property. This may lead to unexpected behavior or errors.
+
+- `Symbol` is a new primitive data type introduced in ES6 that can create unique identifiers. Using `Symbol` as a property name ensures that even if two Symbols have the same description, they are different and will not conflict.
+
+- Using `Symbol` and `Object.defineProperty` to add properties ensures that even if there are existing properties with the same description on the original object, the newly added properties will not conflict with the existing ones, maintaining the integrity and stability of the original object.
+
+
+
